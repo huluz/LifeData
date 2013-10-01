@@ -32,6 +32,7 @@ Partial Class frmDailyBalance
         Me.RemarkDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmsDGV = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.修改ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.删除ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DailyBalanceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LifeDataDataSet = New LifeData.LifeDataDataSet()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
@@ -117,15 +118,21 @@ Partial Class frmDailyBalance
         '
         'cmsDGV
         '
-        Me.cmsDGV.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.修改ToolStripMenuItem})
+        Me.cmsDGV.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.修改ToolStripMenuItem, Me.删除ToolStripMenuItem})
         Me.cmsDGV.Name = "cmsDGV"
-        Me.cmsDGV.Size = New System.Drawing.Size(109, 28)
+        Me.cmsDGV.Size = New System.Drawing.Size(109, 52)
         '
         '修改ToolStripMenuItem
         '
         Me.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem"
         Me.修改ToolStripMenuItem.Size = New System.Drawing.Size(108, 24)
         Me.修改ToolStripMenuItem.Text = "修改"
+        '
+        '删除ToolStripMenuItem
+        '
+        Me.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem"
+        Me.删除ToolStripMenuItem.Size = New System.Drawing.Size(108, 24)
+        Me.删除ToolStripMenuItem.Text = "删除"
         '
         'DailyBalanceBindingSource
         '
@@ -146,13 +153,13 @@ Partial Class frmDailyBalance
         '
         'cmbType
         '
+        Me.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbType.FormattingEnabled = True
         Me.cmbType.Items.AddRange(New Object() {"支出", "收入"})
         Me.cmbType.Location = New System.Drawing.Point(329, 32)
         Me.cmbType.Name = "cmbType"
         Me.cmbType.Size = New System.Drawing.Size(175, 26)
         Me.cmbType.TabIndex = 4
-        Me.cmbType.Text = "支出/收入"
         '
         'Label1
         '
@@ -235,6 +242,7 @@ Partial Class frmDailyBalance
         '
         'btnRefresh
         '
+        Me.btnRefresh.Enabled = False
         Me.btnRefresh.Location = New System.Drawing.Point(680, 28)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(127, 48)
@@ -265,7 +273,7 @@ Partial Class frmDailyBalance
         Me.ssTotalyBalance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ssTotalBalanceLable})
         Me.ssTotalyBalance.Location = New System.Drawing.Point(0, 597)
         Me.ssTotalyBalance.Name = "ssTotalyBalance"
-        Me.ssTotalyBalance.Size = New System.Drawing.Size(845, 25)
+        Me.ssTotalyBalance.Size = New System.Drawing.Size(844, 25)
         Me.ssTotalyBalance.TabIndex = 18
         Me.ssTotalyBalance.Tag = ""
         '
@@ -279,7 +287,7 @@ Partial Class frmDailyBalance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(845, 622)
+        Me.ClientSize = New System.Drawing.Size(844, 622)
         Me.Controls.Add(Me.ssTotalyBalance)
         Me.Controls.Add(Me.btnYearlyBalance)
         Me.Controls.Add(Me.btnMonthlyBalance)
@@ -341,4 +349,5 @@ Partial Class frmDailyBalance
     Friend WithEvents cmsDGV As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents 修改ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ssTotalBalanceLable As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents 删除ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
