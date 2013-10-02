@@ -92,10 +92,17 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExeSQL.vb" />
     <Compile Include="frmDailyBalance.Designer.vb">
       <DependentUpon>frmDailyBalance.vb</DependentUpon>
     </Compile>
     <Compile Include="frmDailyBalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMonthlyBalance.Designer.vb">
+      <DependentUpon>frmMonthlyBalance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMonthlyBalance.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LifeDataDataSet.Designer.vb">
@@ -123,6 +130,9 @@
     <EmbeddedResource Include="frmDailyBalance.resx">
       <DependentUpon>frmDailyBalance.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMonthlyBalance.resx">
+      <DependentUpon>frmMonthlyBalance.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -143,7 +153,6 @@
     <None Include="LifeDataDataSet.xss">
       <DependentUpon>LifeDataDataSet.xsd</DependentUpon>
     </None>
-    <None Include="LifeData_TemporaryKey.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

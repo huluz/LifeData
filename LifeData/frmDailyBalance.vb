@@ -1,11 +1,4 @@
-﻿Imports System.Data
-Imports System.Data.SqlClient
-
-Public Class frmDailyBalance
-    REM-操作SQL数据库用类-
-    Dim ConnectionString As String = "Data Source=.;Initial Catalog=LifeData;Persist Security Info=True;User ID=sa;Password=06e1953509ff7a451971a3522ec99851"   '连接用字符串
-    Dim objConnection As New SqlConnection(ConnectionString)    '数据库链接
-    Dim objCommand As New SqlCommand
+﻿Public Class frmDailyBalance
     Dim RefreshID As Integer = 0    '用于更新的数据组ID
     Dim strDate As String, strDirec As String, strCate As String, strRemark As String   '日期、收支方向、类别、备注
     Dim Money As Single '金额
@@ -16,7 +9,12 @@ Public Class frmDailyBalance
         'TODO: 调整DataGridView外观
         dgvDailyBalance.Columns(0).Visible = False
         dgvDailyBalance.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        dgvDailyBalance.Sort(dgvDailyBalance.Columns(0), System.ComponentModel.ListSortDirection.Descending)
+        dgvDailyBalance.Sort(dgvDailyBalance.Columns(1), System.ComponentModel.ListSortDirection.Descending)
+        dgvDailyBalance.Columns(1).HeaderText = "日期"
+        dgvDailyBalance.Columns(2).HeaderText = "收入/支出"
+        dgvDailyBalance.Columns(3).HeaderText = "金额"
+        dgvDailyBalance.Columns(4).HeaderText = "类别"
+        dgvDailyBalance.Columns(5).HeaderText = "备注"
         'TODO: 计算总收支平衡
         Dim Expenditure As Single = 0
         Dim Income As Single = 0
@@ -32,7 +30,7 @@ Public Class frmDailyBalance
         Catch ex As Exception
             MsgBox("计算总收支平衡错误：" & vbCrLf & ex.Message)
         End Try
-        ssTotalBalanceLable.Text = "总支出：" & Expenditure & "     " & "总收入：" & Income & "    " & "总收支平衡：" & Income - Expenditure
+        ssTotalBalanceLable.Text = "总支出：" & Format(Expenditure, ".00") & "     " & "总收入：" & Format(Income, ".00") & "    " & "总收支平衡：" & Format(Income - Expenditure, ".00")
         If Income - Expenditure < 0 Then
             ssTotalBalanceLable.ForeColor = Color.Red
         Else
@@ -49,7 +47,7 @@ Public Class frmDailyBalance
         End If
 
         CollectInputs()
-        If strDate = "" Or strDirec = "" Or strCate = "" Or strRemark = "" Or Money <= 0 Then
+        If strDate = "" Or strDirec = "" Or strCate = "" Or Money <= 0 Then
             MsgBox("输入不完整")
             Exit Sub
         End If
@@ -80,7 +78,7 @@ Public Class frmDailyBalance
         Dim cmdString As String
 
         CollectInputs()
-        If strDate = "" Or strDirec = "" Or strCate = "" Or strRemark = "" Or Money <= 0 Then
+        If strDate = "" Or strDirec = "" Or strCate = "" Or Money <= 0 Then
             MsgBox("输入不完整")
             Exit Sub
         End If
@@ -140,15 +138,7 @@ Public Class frmDailyBalance
         End Try
     End Sub
 
-    Private Sub ExexuteSQL(ByVal cmdString As String)
-        Try
-            objConnection.Open()
-            objCommand.Connection = objConnection
-            objCommand.CommandText = cmdString
-            objCommand.ExecuteNonQuery()
-            objConnection.Close()
-        Catch ex As Exception
-            MsgBox("数据库操作错误：" & vbCrLf & ex.Message)
-        End Try
+    Private Sub btnDataCollection_Click(sender As Object, e As EventArgs) Handles btnDataCollection.Click
+        frmMonthlyandYearlyBalance.Show()
     End Sub
 End Class
