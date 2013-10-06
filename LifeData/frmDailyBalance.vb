@@ -1,4 +1,7 @@
-﻿Public Class frmDailyBalance
+﻿Imports System.Data
+Imports System.Data.SqlClient
+
+Public Class frmDailyBalance
     Dim RefreshID As Integer = 0    '用于更新的数据组ID
     Dim strDate As String, strDirec As String, strCate As String, strRemark As String   '日期、收支方向、类别、备注
     Dim Money As Single '金额
@@ -36,6 +39,28 @@
         Else
             ssTotalBalanceLable.ForeColor = Color.Green
         End If
+        'TODO: 计算当月收支平衡
+        Dim objAdapter As SqlDataAdapter, dtResults As New DataTable
+        Dim strYear As String, strMonth As String, cmdString As String
+        strYear = Now.Year
+        strMonth = Now.Month
+        cmdString = "SELECT * FROM [LifeData].[dbo].[DailyBalance] WHERE Month(Date)='" & strMonth & "' and YEAR(Date)='" & strYear & "'"
+        objAdapter = QuerySQL(cmdString)
+        objAdapter.Fill(dtResults)
+        Expenditure = 0 : Income = 0
+        For kk = 1 To dtResults.Rows.Count
+            If dtResults.Rows(kk - 1).Item("Direction") = "收入" Then
+                Income += dtResults.Rows(kk - 1).Item("Money")
+            Else
+                Expenditure += dtResults.Rows(kk - 1).Item("Money")
+            End If
+        Next
+        ssCurrentMonthBalanceLabel.Text = "当月支出：" & Format(Expenditure, ".00") & "    当月收入：" & Format(Income, ".00") & "    收支平衡：" & Format(Income - Expenditure, ".00")
+        If Income - Expenditure < 0 Then
+            ssCurrentMonthBalanceLabel.ForeColor = Color.Red
+        Else
+            ssCurrentMonthBalanceLabel.ForeColor = Color.Green
+        End If
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
@@ -54,24 +79,12 @@
 
         cmdString = "INSERT INTO [LifeData].[dbo].[DailyBalance] (Date,Direction,Money,Category,Remark) VALUES ('" & strDate & "','" & strDirec & "'," & Money.ToString & ",'" & strCate & "','" & strRemark & "')"
         ExexuteSQL(cmdString)
+        ClearInputs()
         frmDailyBalance_Load(sender, e)
     End Sub
 
     Private Sub dgvDailyBalance_CellMouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvDailyBalance.CellMouseDown
-        If e.Button = Windows.Forms.MouseButtons.Right Then
-            If e.ColumnIndex >= 0 And e.RowIndex >= 0 Then
-                If dgvDailyBalance.Rows(e.RowIndex).Selected = False Then   '选中行
-                    dgvDailyBalance.ClearSelection()
-                    dgvDailyBalance.Rows(e.RowIndex).Selected = True
-                End If
-
-                If dgvDailyBalance.SelectedRows.Count = 1 Then
-                    dgvDailyBalance.CurrentCell = dgvDailyBalance.Rows(e.RowIndex).Cells(e.ColumnIndex)
-                End If
-
-                Me.cmsDGV.Show(MousePosition.X, MousePosition.Y)
-            End If
-        End If
+        DGVRightClick(sender, e, dgvDailyBalance, cmsDGV, MousePosition)
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
@@ -88,28 +101,31 @@
         frmDailyBalance_Load(sender, e)
 
         RefreshID = 0
-        cmbType.Text = ""
-        txtCat.Text = ""
-        txtMoney.Text = ""
-        txtRemark.Text = ""
+        ClearInputs()
         btnRefresh.Enabled = False
+        btnAdd.Enabled = True
     End Sub
 
     Private Sub 修改ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 修改ToolStripMenuItem.Click
         Dim SelectedRowNum As Integer
 
-        btnRefresh.Enabled = True
         SelectedRowNum = dgvDailyBalance.CurrentCell.RowIndex   '获取参数
         RefreshID = dgvDailyBalance.Rows(SelectedRowNum).Cells(0).Value
-        dtpDate.Value = dgvDailyBalance.Rows(SelectedRowNum).Cells(1).Value '日期
-        cmbType.Text = dgvDailyBalance.Rows(SelectedRowNum).Cells(2).Value  '收支方向
-        txtMoney.Text = dgvDailyBalance.Rows(SelectedRowNum).Cells(3).Value  '金额
-        txtCat.Text = dgvDailyBalance.Rows(SelectedRowNum).Cells(4).Value   '类别
-        Try
-            txtRemark.Text = dgvDailyBalance.Rows(SelectedRowNum).Cells(5).Value
-        Catch ex As Exception
-            txtRemark.Text = ""
-        End Try
+        If RefreshID <> -1 Then
+            btnAdd.Enabled = False
+            btnRefresh.Enabled = True
+            dtpDate.Value = dgvDailyBalance.Rows(SelectedRowNum).Cells(1).Value '日期
+            cmbType.Text = dgvDailyBalance.Rows(SelectedRowNum).Cells(2).Value  '收支方向
+            txtMoney.Text = dgvDailyBalance.Rows(SelectedRowNum).Cells(3).Value  '金额
+            txtCat.Text = dgvDailyBalance.Rows(SelectedRowNum).Cells(4).Value   '类别
+            Try
+                txtRemark.Text = dgvDailyBalance.Rows(SelectedRowNum).Cells(5).Value
+            Catch ex As Exception
+                txtRemark.Text = ""
+            End Try
+        Else
+            RefreshID = 0
+        End If
     End Sub
 
     Private Sub 删除ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 删除ToolStripMenuItem.Click
@@ -119,9 +135,11 @@
             SelectedRowNum = dgvDailyBalance.CurrentCell.RowIndex   '获取参数
             ID = dgvDailyBalance.Rows(SelectedRowNum).Cells(0).Value
 
-            cmdString = "DELETE FROM [LifeData].[dbo].[DailyBalance] Where ID = " & ID
-            ExexuteSQL(cmdString)
-            frmDailyBalance_Load(sender, e)
+            If ID <> -1 Then
+                cmdString = "DELETE FROM [LifeData].[dbo].[DailyBalance] Where ID = " & ID
+                ExexuteSQL(cmdString)
+                frmDailyBalance_Load(sender, e)
+            End If
         End If
     End Sub
 
@@ -136,6 +154,13 @@
             MsgBox("输入错误：" & vbCrLf & ex.Message)
             Exit Sub
         End Try
+    End Sub
+
+    Private Sub ClearInputs()
+        cmbType.Text = ""
+        txtCat.Text = ""
+        txtMoney.Text = ""
+        txtRemark.Text = ""
     End Sub
 
     Private Sub btnDataCollection_Click(sender As Object, e As EventArgs) Handles btnDataCollection.Click

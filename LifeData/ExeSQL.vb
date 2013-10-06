@@ -15,9 +15,10 @@ Module ExeSQL
             objCommand.Connection = objConnection
             objCommand.CommandText = cmdString
             objCommand.ExecuteNonQuery()
-            objConnection.Close()
         Catch ex As Exception
             MsgBox("数据库操作错误：" & vbCrLf & ex.Message)
+        Finally
+            objConnection.Close()
         End Try
     End Sub
 
@@ -27,11 +28,12 @@ Module ExeSQL
             objCommand.Connection = objConnection
             objCommand.CommandText = queryString
             objDataAdapter = New SqlDataAdapter(objCommand)
-            objConnection.Close()
             Return objDataAdapter
         Catch ex As Exception
             MsgBox("查询数据库出错：" & vbCrLf & ex.Message)
             Exit Function
+        Finally
+            objConnection.Close()
         End Try
     End Function
 End Module

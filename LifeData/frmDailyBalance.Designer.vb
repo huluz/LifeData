@@ -51,6 +51,7 @@ Partial Class frmDailyBalance
         Me.MoneyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CategoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RemarkDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ssCurrentMonthBalanceLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.cmsDGV.SuspendLayout()
         CType(Me.DailyBalanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LifeDataDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,7 +93,7 @@ Partial Class frmDailyBalance
         '
         'ssTotalyBalance
         '
-        Me.ssTotalyBalance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ssTotalBalanceLable})
+        Me.ssTotalyBalance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ssTotalBalanceLable, Me.ssCurrentMonthBalanceLabel})
         Me.ssTotalyBalance.Location = New System.Drawing.Point(0, 612)
         Me.ssTotalyBalance.Name = "ssTotalyBalance"
         Me.ssTotalyBalance.Size = New System.Drawing.Size(817, 25)
@@ -102,8 +103,8 @@ Partial Class frmDailyBalance
         'ssTotalBalanceLable
         '
         Me.ssTotalBalanceLable.Name = "ssTotalBalanceLable"
-        Me.ssTotalBalanceLable.Size = New System.Drawing.Size(170, 20)
-        Me.ssTotalBalanceLable.Text = "ToolStripStatusLabel1"
+        Me.ssTotalBalanceLable.Size = New System.Drawing.Size(154, 20)
+        Me.ssTotalBalanceLable.Text = "ssTotalBalanceLabel"
         '
         'btnDataCollection
         '
@@ -201,7 +202,6 @@ Partial Class frmDailyBalance
         '
         'cmbType
         '
-        Me.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbType.FormattingEnabled = True
         Me.cmbType.Items.AddRange(New Object() {"支出", "收入"})
         Me.cmbType.Location = New System.Drawing.Point(316, 20)
@@ -219,6 +219,7 @@ Partial Class frmDailyBalance
         'dgvDailyBalance
         '
         Me.dgvDailyBalance.AutoGenerateColumns = False
+        Me.dgvDailyBalance.BackgroundColor = System.Drawing.Color.White
         Me.dgvDailyBalance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvDailyBalance.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn, Me.DirectionDataGridViewTextBoxColumn, Me.MoneyDataGridViewTextBoxColumn, Me.CategoryDataGridViewTextBoxColumn, Me.RemarkDataGridViewTextBoxColumn})
         Me.dgvDailyBalance.ContextMenuStrip = Me.cmsDGV
@@ -273,6 +274,12 @@ Partial Class frmDailyBalance
         Me.RemarkDataGridViewTextBoxColumn.HeaderText = "Remark"
         Me.RemarkDataGridViewTextBoxColumn.Name = "RemarkDataGridViewTextBoxColumn"
         Me.RemarkDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ssCurrentMonthBalanceLabel
+        '
+        Me.ssCurrentMonthBalanceLabel.Name = "ssCurrentMonthBalanceLabel"
+        Me.ssCurrentMonthBalanceLabel.Size = New System.Drawing.Size(221, 20)
+        Me.ssCurrentMonthBalanceLabel.Text = "ssCurrentMonthBalanceLabel"
         '
         'frmDailyBalance
         '
@@ -339,4 +346,5 @@ Partial Class frmDailyBalance
     Friend WithEvents MoneyDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CategoryDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RemarkDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ssCurrentMonthBalanceLabel As System.Windows.Forms.ToolStripStatusLabel
 End Class

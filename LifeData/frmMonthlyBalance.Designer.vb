@@ -51,6 +51,12 @@ Partial Class frmMonthlyandYearlyBalance
         Me.cmbYear = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvDailyBalance = New System.Windows.Forms.DataGridView()
+        Me.ssMonthlyBalance = New System.Windows.Forms.StatusStrip()
+        Me.ssMonthlyBalanceLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.cmsDGVMonthly = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.删除ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmsDGVYearly = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.删除ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.MonthlyBalanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LifeDataDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AnnualyBalanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,6 +65,9 @@ Partial Class frmMonthlyandYearlyBalance
         CType(Me.dgvMonthlyBalance, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvDailyBalance, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ssMonthlyBalance.SuspendLayout()
+        Me.cmsDGVMonthly.SuspendLayout()
+        Me.cmsDGVYearly.SuspendLayout()
         Me.SuspendLayout()
         '
         'MonthlyBalanceBindingSource
@@ -90,9 +99,9 @@ Partial Class frmMonthlyandYearlyBalance
         Me.GroupBox1.Controls.Add(Me.dgvYearlyBalance)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.dgvMonthlyBalance)
-        Me.GroupBox1.Location = New System.Drawing.Point(1175, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(940, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(475, 936)
+        Me.GroupBox1.Size = New System.Drawing.Size(475, 799)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "日常收支统计数据"
@@ -101,7 +110,7 @@ Partial Class frmMonthlyandYearlyBalance
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("微软雅黑", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label2.Location = New System.Drawing.Point(189, 490)
+        Me.Label2.Location = New System.Drawing.Point(189, 407)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(107, 25)
         Me.Label2.TabIndex = 6
@@ -110,15 +119,16 @@ Partial Class frmMonthlyandYearlyBalance
         'dgvYearlyBalance
         '
         Me.dgvYearlyBalance.AutoGenerateColumns = False
+        Me.dgvYearlyBalance.BackgroundColor = System.Drawing.Color.White
         Me.dgvYearlyBalance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvYearlyBalance.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.YearDataGridViewTextBoxColumn, Me.ExpenditureDataGridViewTextBoxColumn1, Me.IncomeDataGridViewTextBoxColumn1, Me.BalanceDataGridViewTextBoxColumn1})
         Me.dgvYearlyBalance.DataSource = Me.AnnualyBalanceBindingSource
-        Me.dgvYearlyBalance.Location = New System.Drawing.Point(6, 519)
+        Me.dgvYearlyBalance.Location = New System.Drawing.Point(7, 436)
         Me.dgvYearlyBalance.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgvYearlyBalance.Name = "dgvYearlyBalance"
         Me.dgvYearlyBalance.ReadOnly = True
         Me.dgvYearlyBalance.RowTemplate.Height = 27
-        Me.dgvYearlyBalance.Size = New System.Drawing.Size(462, 410)
+        Me.dgvYearlyBalance.Size = New System.Drawing.Size(462, 350)
         Me.dgvYearlyBalance.TabIndex = 5
         '
         'YearDataGridViewTextBoxColumn
@@ -162,6 +172,7 @@ Partial Class frmMonthlyandYearlyBalance
         'dgvMonthlyBalance
         '
         Me.dgvMonthlyBalance.AutoGenerateColumns = False
+        Me.dgvMonthlyBalance.BackgroundColor = System.Drawing.Color.White
         Me.dgvMonthlyBalance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvMonthlyBalance.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MonthDataGridViewTextBoxColumn, Me.ExpenditureDataGridViewTextBoxColumn, Me.IncomeDataGridViewTextBoxColumn, Me.BalanceDataGridViewTextBoxColumn})
         Me.dgvMonthlyBalance.DataSource = Me.MonthlyBalanceBindingSource
@@ -170,7 +181,7 @@ Partial Class frmMonthlyandYearlyBalance
         Me.dgvMonthlyBalance.Name = "dgvMonthlyBalance"
         Me.dgvMonthlyBalance.ReadOnly = True
         Me.dgvMonthlyBalance.RowTemplate.Height = 27
-        Me.dgvMonthlyBalance.Size = New System.Drawing.Size(462, 410)
+        Me.dgvMonthlyBalance.Size = New System.Drawing.Size(462, 350)
         Me.dgvMonthlyBalance.TabIndex = 3
         '
         'MonthDataGridViewTextBoxColumn
@@ -214,17 +225,16 @@ Partial Class frmMonthlyandYearlyBalance
         Me.GroupBox2.Controls.Add(Me.dgvDailyBalance)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1045, 936)
+        Me.GroupBox2.Size = New System.Drawing.Size(922, 799)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "日常收支数据查询"
         '
         'cmbDirec
         '
-        Me.cmbDirec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbDirec.FormattingEnabled = True
         Me.cmbDirec.Items.AddRange(New Object() {"全部", "收入", "支出"})
-        Me.cmbDirec.Location = New System.Drawing.Point(867, 91)
+        Me.cmbDirec.Location = New System.Drawing.Point(845, 91)
         Me.cmbDirec.Name = "cmbDirec"
         Me.cmbDirec.Size = New System.Drawing.Size(68, 26)
         Me.cmbDirec.TabIndex = 54
@@ -232,7 +242,7 @@ Partial Class frmMonthlyandYearlyBalance
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(812, 94)
+        Me.Label5.Location = New System.Drawing.Point(790, 94)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(49, 19)
         Me.Label5.TabIndex = 53
@@ -241,7 +251,7 @@ Partial Class frmMonthlyandYearlyBalance
         'btnWrite
         '
         Me.btnWrite.Enabled = False
-        Me.btnWrite.Location = New System.Drawing.Point(816, 175)
+        Me.btnWrite.Location = New System.Drawing.Point(794, 175)
         Me.btnWrite.Name = "btnWrite"
         Me.btnWrite.Size = New System.Drawing.Size(119, 46)
         Me.btnWrite.TabIndex = 52
@@ -250,7 +260,7 @@ Partial Class frmMonthlyandYearlyBalance
         '
         'btnQuery
         '
-        Me.btnQuery.Location = New System.Drawing.Point(816, 123)
+        Me.btnQuery.Location = New System.Drawing.Point(794, 123)
         Me.btnQuery.Name = "btnQuery"
         Me.btnQuery.Size = New System.Drawing.Size(119, 46)
         Me.btnQuery.TabIndex = 51
@@ -259,10 +269,9 @@ Partial Class frmMonthlyandYearlyBalance
         '
         'cmbMonth
         '
-        Me.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbMonth.FormattingEnabled = True
         Me.cmbMonth.Items.AddRange(New Object() {"全部", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.cmbMonth.Location = New System.Drawing.Point(867, 59)
+        Me.cmbMonth.Location = New System.Drawing.Point(845, 59)
         Me.cmbMonth.Name = "cmbMonth"
         Me.cmbMonth.Size = New System.Drawing.Size(68, 26)
         Me.cmbMonth.TabIndex = 50
@@ -270,7 +279,7 @@ Partial Class frmMonthlyandYearlyBalance
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(812, 62)
+        Me.Label4.Location = New System.Drawing.Point(790, 62)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(49, 19)
         Me.Label4.TabIndex = 49
@@ -278,9 +287,8 @@ Partial Class frmMonthlyandYearlyBalance
         '
         'cmbYear
         '
-        Me.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbYear.FormattingEnabled = True
-        Me.cmbYear.Location = New System.Drawing.Point(867, 27)
+        Me.cmbYear.Location = New System.Drawing.Point(845, 27)
         Me.cmbYear.Name = "cmbYear"
         Me.cmbYear.Size = New System.Drawing.Size(68, 26)
         Me.cmbYear.TabIndex = 48
@@ -288,7 +296,7 @@ Partial Class frmMonthlyandYearlyBalance
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(812, 30)
+        Me.Label3.Location = New System.Drawing.Point(790, 30)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 19)
         Me.Label3.TabIndex = 47
@@ -296,6 +304,7 @@ Partial Class frmMonthlyandYearlyBalance
         '
         'dgvDailyBalance
         '
+        Me.dgvDailyBalance.BackgroundColor = System.Drawing.Color.White
         Me.dgvDailyBalance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvDailyBalance.Cursor = System.Windows.Forms.Cursors.Default
         Me.dgvDailyBalance.Location = New System.Drawing.Point(6, 28)
@@ -303,14 +312,53 @@ Partial Class frmMonthlyandYearlyBalance
         Me.dgvDailyBalance.Name = "dgvDailyBalance"
         Me.dgvDailyBalance.ReadOnly = True
         Me.dgvDailyBalance.RowTemplate.Height = 27
-        Me.dgvDailyBalance.Size = New System.Drawing.Size(778, 901)
+        Me.dgvDailyBalance.Size = New System.Drawing.Size(778, 758)
         Me.dgvDailyBalance.TabIndex = 46
+        '
+        'ssMonthlyBalance
+        '
+        Me.ssMonthlyBalance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ssMonthlyBalanceLabel})
+        Me.ssMonthlyBalance.Location = New System.Drawing.Point(0, 821)
+        Me.ssMonthlyBalance.Name = "ssMonthlyBalance"
+        Me.ssMonthlyBalance.Size = New System.Drawing.Size(1431, 25)
+        Me.ssMonthlyBalance.TabIndex = 6
+        '
+        'ssMonthlyBalanceLabel
+        '
+        Me.ssMonthlyBalanceLabel.Name = "ssMonthlyBalanceLabel"
+        Me.ssMonthlyBalanceLabel.Size = New System.Drawing.Size(178, 20)
+        Me.ssMonthlyBalanceLabel.Text = "ssMonthlyBalanceLabel"
+        '
+        'cmsDGVMonthly
+        '
+        Me.cmsDGVMonthly.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.删除ToolStripMenuItem})
+        Me.cmsDGVMonthly.Name = "cmsDGV"
+        Me.cmsDGVMonthly.Size = New System.Drawing.Size(109, 28)
+        '
+        '删除ToolStripMenuItem
+        '
+        Me.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem"
+        Me.删除ToolStripMenuItem.Size = New System.Drawing.Size(108, 24)
+        Me.删除ToolStripMenuItem.Text = "删除"
+        '
+        'cmsDGVYearly
+        '
+        Me.cmsDGVYearly.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.删除ToolStripMenuItem1})
+        Me.cmsDGVYearly.Name = "cmsDGVYearly"
+        Me.cmsDGVYearly.Size = New System.Drawing.Size(109, 28)
+        '
+        '删除ToolStripMenuItem1
+        '
+        Me.删除ToolStripMenuItem1.Name = "删除ToolStripMenuItem1"
+        Me.删除ToolStripMenuItem1.Size = New System.Drawing.Size(108, 24)
+        Me.删除ToolStripMenuItem1.Text = "删除"
         '
         'frmMonthlyandYearlyBalance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1662, 960)
+        Me.ClientSize = New System.Drawing.Size(1431, 846)
+        Me.Controls.Add(Me.ssMonthlyBalance)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("楷体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
@@ -329,7 +377,12 @@ Partial Class frmMonthlyandYearlyBalance
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.dgvDailyBalance, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ssMonthlyBalance.ResumeLayout(False)
+        Me.ssMonthlyBalance.PerformLayout()
+        Me.cmsDGVMonthly.ResumeLayout(False)
+        Me.cmsDGVYearly.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents LifeDataDataSet As LifeData.LifeDataDataSet
@@ -360,4 +413,10 @@ Partial Class frmMonthlyandYearlyBalance
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cmbDirec As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents ssMonthlyBalance As System.Windows.Forms.StatusStrip
+    Friend WithEvents ssMonthlyBalanceLabel As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents cmsDGVMonthly As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents 删除ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmsDGVYearly As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents 删除ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 End Class
