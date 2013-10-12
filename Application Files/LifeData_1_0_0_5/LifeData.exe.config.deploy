@@ -1,9 +1,10 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <configuration>
     <configSections>
     </configSections>
     <connectionStrings>
-        <add name="LifeData.My.MySettings.LifeDataConnectionString" connectionString="Data Source=.;Initial Catalog=LifeData;Persist Security Info=True;User ID=sa;Password=06e1953509ff7a451971a3522ec99851" providerName="System.Data.SqlClient"/>
+        <add name="LifeData.My.MySettings.LifeDataConnectionString" connectionString="Data Source=.;Initial Catalog=LifeData;Persist Security Info=True;User ID=sa;Password=06e1953509ff7a451971a3522ec99851"
+            providerName="System.Data.SqlClient" />
     </connectionStrings>
     <system.diagnostics>
         <sources>
@@ -17,12 +18,14 @@
             </source>
         </sources>
         <switches>
-            <add name="DefaultSwitch" value="Information"/>
+            <add name="DefaultSwitch" value="Information" />
         </switches>
         <sharedListeners>
-            <add name="FileLog" type="Microsoft.VisualBasic.Logging.FileLogTraceListener, Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" initializeData="FileLogWriter"/>
+            <add name="FileLog"
+                 type="Microsoft.VisualBasic.Logging.FileLogTraceListener, Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                 initializeData="FileLogWriter"/>
             <!-- 取消注释以下一节并用应用程序名替换 APPLICATION_NAME 可写入应用程序事件日志-->
             <!--<add name="EventLog" type="System.Diagnostics.EventLogTraceListener" initializeData="APPLICATION_NAME"/> -->
         </sharedListeners>
     </system.diagnostics>
-<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/></startup></configuration>
+</configuration>

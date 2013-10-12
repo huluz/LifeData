@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="LifeData.exe" version="1.0.0.5" publicKeyToken="0926a7e3c5618559" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="ICON.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="LifeData" version="0.1.2.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="LifeData.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC 清单选项
+          如果要更改 Windows 用户帐户控制级别，请用以下节点之一替换
+          requestedExecutionLevel 节点。
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+          如果要利用文件和注册表虚拟化提供
+          向后兼容性，请删除 requestedExecutionLevel 节点。
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="4" minorVersion="10" buildNumber="0" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="2.0.50727.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LifeData.exe" size="473088">
+      <assemblyIdentity name="LifeData" version="0.1.2.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>I32UEYps7zNFCm3TNoxeMcpaQZU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ICON.ico" size="366334">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>NbymU2iTLZYQz7SR1os9PEmN+i8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="LifeData.exe.config" size="1615">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>En+/Ak//O7rk4qxLERMxfafHojM=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=ZhangXiaorui-PC\ZhangXiaorui" issuerKeyHash="e5dcddd20dc5aadff6dbf699863067ef2d91075e" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>ESC8UinhsOFUmWM6jTqVrfrU2JE=</DigestValue></Reference></SignedInfo><SignatureValue>HOzJlWZF/+pAQuHGFTkD8NE9TLoS8JA/NU63WkKVu4/edF4QygWTohv2xNTGOINADMMqkEBzPiYc/WMve7AnH+1+wJmuOeV+W2GMflJDXssP30s7TLuNE6wZYkX6nZHATD2rxaZNYHjfXBxT3AzrK7SmZbdASXwQll73McIMYAM=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>rcRMAqTN6HvXpycUvNhqUXDklx4hVpWWcbbKZRiclWPqWgDMRUIB0z9n+ttz3BaHfOZ02v/VtoWWYojga5iHYaGj3Rbni/mTrdhnxi7+3PdQJqKQEwAIysYHHiznyAahaib3p1FuGvSaga0eCDpm9ZcKYdeGa9wg3UBPaAbqjNk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="91d8d4faad953a8d3a639954e1b0e12952bc2011" Description="" Url=""><as:assemblyIdentity name="LifeData.exe" version="1.0.0.5" publicKeyToken="0926a7e3c5618559" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=ZhangXiaorui-PC\ZhangXiaorui</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>Xli+hvw0hoeR6RO3gUBXahwAGa0=</DigestValue></Reference></SignedInfo><SignatureValue>EuSp7Y165in2nXj1WiV7/P4IpKYFS9DDRJX5t9k7YBYdqlKZ1tLtnc+TBaqiQgoHXQSRbxTD7RoDQb2IpF7YcGt1+A+lVJojEkzKgZqVWPSYEhrUmS2MoTDPIYAonMeiI5jwloOvbsan3dJU1oG+Lo2zI2pm6gbfxy85heDfpU8=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>rcRMAqTN6HvXpycUvNhqUXDklx4hVpWWcbbKZRiclWPqWgDMRUIB0z9n+ttz3BaHfOZ02v/VtoWWYojga5iHYaGj3Rbni/mTrdhnxi7+3PdQJqKQEwAIysYHHiznyAahaib3p1FuGvSaga0eCDpm9ZcKYdeGa9wg3UBPaAbqjNk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIICCTCCAXKgAwIBAgIQQKT6F/iAK5xNGph0V0Nk7zANBgkqhkiG9w0BAQUFADBDMUEwPwYDVQQDHjgAWgBoAGEAbgBnAFgAaQBhAG8AcgB1AGkALQBQAEMAXABaAGgAYQBuAGcAWABpAGEAbwByAHUAaTAeFw0xMzEwMDEwNTM1NThaFw0xNDEwMDExMTM1NThaMEMxQTA/BgNVBAMeOABaAGgAYQBuAGcAWABpAGEAbwByAHUAaQAtAFAAQwBcAFoAaABhAG4AZwBYAGkAYQBvAHIAdQBpMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCtxEwCpM3oe9enJxS82GpRcOSXHiFWlZZxtsplGJyVY+paAMxFQgHTP2f623PcFod85nTa/9W2hZZiiOBrmIdhoaPdFueL+ZOt2GfGLv7c91AmopATAAjKxgceLOfIBqFqJvenUW4a9JqBrR4IOmb1lwph14Zr3CDdQE9oBuqM2QIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAIAxw9zOw2VgXTNCHYsSZgU74F2FOIFUSBFKd4DKzrLdhVT1R0OqF2Ls4JW6H2NC9DZgzF37ER+SL7LYMoT5hD+1AnaYVCmBZfNCxV16wsD82aeof8u1dC4otXkYt4ODA44/gxLkcHMZ71bmio2DH1okkgTw/7zDpAGEUh20DL4W</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

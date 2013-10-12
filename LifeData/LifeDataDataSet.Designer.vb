@@ -351,8 +351,7 @@ Partial Public Class LifeDataDataSet
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class AnnualyBalanceDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of AnnualyBalanceRow)
         
         Private columnYear As Global.System.Data.DataColumn
         
@@ -464,47 +463,41 @@ Partial Public Class LifeDataDataSet
             Me.Rows.Add(row)
         End Sub
         
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overloads Function AddAnnualyBalanceRow(ByVal Year As String, ByVal Expenditure As Decimal, ByVal Income As Decimal, ByVal Balance As Decimal) As AnnualyBalanceRow
-            Dim rowAnnualyBalanceRow As AnnualyBalanceRow = CType(Me.NewRow, AnnualyBalanceRow)
+            Dim rowAnnualyBalanceRow As AnnualyBalanceRow = CType(Me.NewRow,AnnualyBalanceRow)
             Dim columnValuesArray() As Object = New Object() {Year, Expenditure, Income, Balance}
             rowAnnualyBalanceRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowAnnualyBalanceRow)
             Return rowAnnualyBalanceRow
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
-        End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As AnnualyBalanceDataTable = CType(MyBase.Clone, AnnualyBalanceDataTable)
-            cln.InitVars()
+            Dim cln As AnnualyBalanceDataTable = CType(MyBase.Clone,AnnualyBalanceDataTable)
+            cln.InitVars
             Return cln
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
             Return New AnnualyBalanceDataTable()
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnYear = MyBase.Columns("Year")
             Me.columnExpenditure = MyBase.Columns("Expenditure")
             Me.columnIncome = MyBase.Columns("Income")
             Me.columnBalance = MyBase.Columns("Balance")
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
             Me.columnYear = New Global.System.Data.DataColumn("Year", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnYear)
@@ -514,74 +507,74 @@ Partial Public Class LifeDataDataSet
             MyBase.Columns.Add(Me.columnIncome)
             Me.columnBalance = New Global.System.Data.DataColumn("Balance", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBalance)
-            Me.columnYear.AllowDBNull = False
-            Me.columnExpenditure.AllowDBNull = False
-            Me.columnIncome.AllowDBNull = False
-            Me.columnBalance.AllowDBNull = False
+            Me.columnYear.AllowDBNull = false
+            Me.columnExpenditure.AllowDBNull = false
+            Me.columnIncome.AllowDBNull = false
+            Me.columnBalance.AllowDBNull = false
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function NewAnnualyBalanceRow() As AnnualyBalanceRow
-            Return CType(Me.NewRow, AnnualyBalanceRow)
+            Return CType(Me.NewRow,AnnualyBalanceRow)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
             Return New AnnualyBalanceRow(builder)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
             Return GetType(AnnualyBalanceRow)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
             If (Not (Me.AnnualyBalanceRowChangedEvent) Is Nothing) Then
-                RaiseEvent AnnualyBalanceRowChanged(Me, New AnnualyBalanceRowChangeEvent(CType(e.Row, AnnualyBalanceRow), e.Action))
+                RaiseEvent AnnualyBalanceRowChanged(Me, New AnnualyBalanceRowChangeEvent(CType(e.Row,AnnualyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
             If (Not (Me.AnnualyBalanceRowChangingEvent) Is Nothing) Then
-                RaiseEvent AnnualyBalanceRowChanging(Me, New AnnualyBalanceRowChangeEvent(CType(e.Row, AnnualyBalanceRow), e.Action))
+                RaiseEvent AnnualyBalanceRowChanging(Me, New AnnualyBalanceRowChangeEvent(CType(e.Row,AnnualyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
             If (Not (Me.AnnualyBalanceRowDeletedEvent) Is Nothing) Then
-                RaiseEvent AnnualyBalanceRowDeleted(Me, New AnnualyBalanceRowChangeEvent(CType(e.Row, AnnualyBalanceRow), e.Action))
+                RaiseEvent AnnualyBalanceRowDeleted(Me, New AnnualyBalanceRowChangeEvent(CType(e.Row,AnnualyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
             If (Not (Me.AnnualyBalanceRowDeletingEvent) Is Nothing) Then
-                RaiseEvent AnnualyBalanceRowDeleting(Me, New AnnualyBalanceRowChangeEvent(CType(e.Row, AnnualyBalanceRow), e.Action))
+                RaiseEvent AnnualyBalanceRowDeleting(Me, New AnnualyBalanceRowChangeEvent(CType(e.Row,AnnualyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub RemoveAnnualyBalanceRow(ByVal row As AnnualyBalanceRow)
             Me.Rows.Remove(row)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
@@ -610,35 +603,35 @@ Partial Public Class LifeDataDataSet
             If xs.Contains(dsSchema.TargetNamespace) Then
                 Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
                 Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try
+                Try 
                     Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
                     dsSchema.Write(s1)
                     Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
                     Do While schemas.MoveNext
-                        schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
                         s2.SetLength(0)
                         schema.Write(s2)
                         If (s1.Length = s2.Length) Then
                             s1.Position = 0
                             s2.Position = 0
-
-                            Do While ((s1.Position <> s1.Length) _
+                            
+                            Do While ((s1.Position <> s1.Length)  _
                                         AndAlso (s1.ReadByte = s2.ReadByte))
-
-
+                                
+                                
                             Loop
                             If (s1.Position = s1.Length) Then
                                 Return type
                             End If
                         End If
-
+                        
                     Loop
                 Finally
                     If (Not (s1) Is Nothing) Then
-                        s1.Close()
+                        s1.Close
                     End If
                     If (Not (s2) Is Nothing) Then
-                        s2.Close()
+                        s2.Close
                     End If
                 End Try
             End If
@@ -646,42 +639,41 @@ Partial Public Class LifeDataDataSet
             Return type
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
-    <Global.System.Serializable(), _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")> _
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class DailyBalanceDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
-
+        Inherits Global.System.Data.TypedTableBase(Of DailyBalanceRow)
+        
         Private columnID As Global.System.Data.DataColumn
-
+        
         Private columnDate As Global.System.Data.DataColumn
-
+        
         Private columnDirection As Global.System.Data.DataColumn
-
+        
         Private columnMoney As Global.System.Data.DataColumn
-
+        
         Private columnCategory As Global.System.Data.DataColumn
-
+        
         Private columnRemark As Global.System.Data.DataColumn
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
+            MyBase.New
             Me.TableName = "DailyBalance"
-            Me.BeginInit()
-            Me.InitClass()
-            Me.EndInit()
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New()
+            MyBase.New
             Me.TableName = table.TableName
             If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
                 Me.CaseSensitive = table.CaseSensitive
@@ -695,129 +687,123 @@ Partial Public Class LifeDataDataSet
             Me.Prefix = table.Prefix
             Me.MinimumCapacity = table.MinimumCapacity
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
             MyBase.New(info, context)
-            Me.InitVars()
+            Me.InitVars
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnID
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property DateColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDate
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property DirectionColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDirection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property MoneyColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnMoney
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property CategoryColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCategory
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property RemarkColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnRemark
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Browsable(False)> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
             Get
                 Return Me.Rows.Count
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Default Public ReadOnly Property Item(ByVal index As Integer) As DailyBalanceRow
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DailyBalanceRow
             Get
-                Return CType(Me.Rows(index), DailyBalanceRow)
+                Return CType(Me.Rows(index),DailyBalanceRow)
             End Get
         End Property
-
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Event DailyBalanceRowChanging As DailyBalanceRowChangeEventHandler
-
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Event DailyBalanceRowChanged As DailyBalanceRowChangeEventHandler
-
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Event DailyBalanceRowDeleting As DailyBalanceRowChangeEventHandler
-
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Event DailyBalanceRowDeleted As DailyBalanceRowChangeEventHandler
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overloads Sub AddDailyBalanceRow(ByVal row As DailyBalanceRow)
             Me.Rows.Add(row)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overloads Function AddDailyBalanceRow(ByVal _Date As Date, ByVal Direction As String, ByVal Money As Decimal, ByVal Category As String, ByVal Remark As String) As DailyBalanceRow
-            Dim rowDailyBalanceRow As DailyBalanceRow = CType(Me.NewRow, DailyBalanceRow)
+            Dim rowDailyBalanceRow As DailyBalanceRow = CType(Me.NewRow,DailyBalanceRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, _Date, Direction, Money, Category, Remark}
             rowDailyBalanceRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDailyBalanceRow)
             Return rowDailyBalanceRow
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
-        End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As DailyBalanceDataTable = CType(MyBase.Clone, DailyBalanceDataTable)
-            cln.InitVars()
+            Dim cln As DailyBalanceDataTable = CType(MyBase.Clone,DailyBalanceDataTable)
+            cln.InitVars
             Return cln
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
             Return New DailyBalanceDataTable()
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnID = MyBase.Columns("ID")
             Me.columnDate = MyBase.Columns("Date")
@@ -826,9 +812,9 @@ Partial Public Class LifeDataDataSet
             Me.columnCategory = MyBase.Columns("Category")
             Me.columnRemark = MyBase.Columns("Remark")
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
             Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID)
@@ -845,82 +831,82 @@ Partial Public Class LifeDataDataSet
             MyBase.Columns.Add(Me.columnCategory)
             Me.columnRemark = New Global.System.Data.DataColumn("Remark", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRemark)
-            Me.columnID.AutoIncrement = True
+            Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
-            Me.columnID.AllowDBNull = False
-            Me.columnID.ReadOnly = True
-            Me.columnDate.AllowDBNull = False
-            Me.columnDirection.AllowDBNull = False
+            Me.columnID.AllowDBNull = false
+            Me.columnID.ReadOnly = true
+            Me.columnDate.AllowDBNull = false
+            Me.columnDirection.AllowDBNull = false
             Me.columnDirection.MaxLength = 50
-            Me.columnMoney.AllowDBNull = False
-            Me.columnCategory.AllowDBNull = False
+            Me.columnMoney.AllowDBNull = false
+            Me.columnCategory.AllowDBNull = false
             Me.columnCategory.MaxLength = 50
             Me.columnRemark.MaxLength = 50
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function NewDailyBalanceRow() As DailyBalanceRow
-            Return CType(Me.NewRow, DailyBalanceRow)
+            Return CType(Me.NewRow,DailyBalanceRow)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
             Return New DailyBalanceRow(builder)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
             Return GetType(DailyBalanceRow)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
             If (Not (Me.DailyBalanceRowChangedEvent) Is Nothing) Then
-                RaiseEvent DailyBalanceRowChanged(Me, New DailyBalanceRowChangeEvent(CType(e.Row, DailyBalanceRow), e.Action))
+                RaiseEvent DailyBalanceRowChanged(Me, New DailyBalanceRowChangeEvent(CType(e.Row,DailyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
             If (Not (Me.DailyBalanceRowChangingEvent) Is Nothing) Then
-                RaiseEvent DailyBalanceRowChanging(Me, New DailyBalanceRowChangeEvent(CType(e.Row, DailyBalanceRow), e.Action))
+                RaiseEvent DailyBalanceRowChanging(Me, New DailyBalanceRowChangeEvent(CType(e.Row,DailyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
             If (Not (Me.DailyBalanceRowDeletedEvent) Is Nothing) Then
-                RaiseEvent DailyBalanceRowDeleted(Me, New DailyBalanceRowChangeEvent(CType(e.Row, DailyBalanceRow), e.Action))
+                RaiseEvent DailyBalanceRowDeleted(Me, New DailyBalanceRowChangeEvent(CType(e.Row,DailyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
             If (Not (Me.DailyBalanceRowDeletingEvent) Is Nothing) Then
-                RaiseEvent DailyBalanceRowDeleting(Me, New DailyBalanceRowChangeEvent(CType(e.Row, DailyBalanceRow), e.Action))
+                RaiseEvent DailyBalanceRowDeleting(Me, New DailyBalanceRowChangeEvent(CType(e.Row,DailyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub RemoveDailyBalanceRow(ByVal row As DailyBalanceRow)
             Me.Rows.Remove(row)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
@@ -949,35 +935,35 @@ Partial Public Class LifeDataDataSet
             If xs.Contains(dsSchema.TargetNamespace) Then
                 Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
                 Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try
+                Try 
                     Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
                     dsSchema.Write(s1)
                     Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
                     Do While schemas.MoveNext
-                        schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
                         s2.SetLength(0)
                         schema.Write(s2)
                         If (s1.Length = s2.Length) Then
                             s1.Position = 0
                             s2.Position = 0
-
-                            Do While ((s1.Position <> s1.Length) _
+                            
+                            Do While ((s1.Position <> s1.Length)  _
                                         AndAlso (s1.ReadByte = s2.ReadByte))
-
-
+                                
+                                
                             Loop
                             If (s1.Position = s1.Length) Then
                                 Return type
                             End If
                         End If
-
+                        
                     Loop
                 Finally
                     If (Not (s1) Is Nothing) Then
-                        s1.Close()
+                        s1.Close
                     End If
                     If (Not (s2) Is Nothing) Then
-                        s2.Close()
+                        s2.Close
                     End If
                 End Try
             End If
@@ -985,38 +971,37 @@ Partial Public Class LifeDataDataSet
             Return type
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
-    <Global.System.Serializable(), _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")> _
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class MonthlyBalanceDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
-
+        Inherits Global.System.Data.TypedTableBase(Of MonthlyBalanceRow)
+        
         Private columnMonth As Global.System.Data.DataColumn
-
+        
         Private columnExpenditure As Global.System.Data.DataColumn
-
+        
         Private columnIncome As Global.System.Data.DataColumn
-
+        
         Private columnBalance As Global.System.Data.DataColumn
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
+            MyBase.New
             Me.TableName = "MonthlyBalance"
-            Me.BeginInit()
-            Me.InitClass()
-            Me.EndInit()
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New()
+            MyBase.New
             Me.TableName = table.TableName
             If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
                 Me.CaseSensitive = table.CaseSensitive
@@ -1030,122 +1015,116 @@ Partial Public Class LifeDataDataSet
             Me.Prefix = table.Prefix
             Me.MinimumCapacity = table.MinimumCapacity
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
             MyBase.New(info, context)
-            Me.InitVars()
+            Me.InitVars
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property MonthColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnMonth
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property ExpenditureColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnExpenditure
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property IncomeColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnIncome
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property BalanceColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnBalance
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Browsable(False)> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
             Get
                 Return Me.Rows.Count
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Default Public ReadOnly Property Item(ByVal index As Integer) As MonthlyBalanceRow
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As MonthlyBalanceRow
             Get
-                Return CType(Me.Rows(index), MonthlyBalanceRow)
+                Return CType(Me.Rows(index),MonthlyBalanceRow)
             End Get
         End Property
-
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Event MonthlyBalanceRowChanging As MonthlyBalanceRowChangeEventHandler
-
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Event MonthlyBalanceRowChanged As MonthlyBalanceRowChangeEventHandler
-
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Event MonthlyBalanceRowDeleting As MonthlyBalanceRowChangeEventHandler
-
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Event MonthlyBalanceRowDeleted As MonthlyBalanceRowChangeEventHandler
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overloads Sub AddMonthlyBalanceRow(ByVal row As MonthlyBalanceRow)
             Me.Rows.Add(row)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overloads Function AddMonthlyBalanceRow(ByVal Month As String, ByVal Expenditure As Decimal, ByVal Income As Decimal, ByVal Balance As Decimal) As MonthlyBalanceRow
-            Dim rowMonthlyBalanceRow As MonthlyBalanceRow = CType(Me.NewRow, MonthlyBalanceRow)
+            Dim rowMonthlyBalanceRow As MonthlyBalanceRow = CType(Me.NewRow,MonthlyBalanceRow)
             Dim columnValuesArray() As Object = New Object() {Month, Expenditure, Income, Balance}
             rowMonthlyBalanceRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowMonthlyBalanceRow)
             Return rowMonthlyBalanceRow
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
-        End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As MonthlyBalanceDataTable = CType(MyBase.Clone, MonthlyBalanceDataTable)
-            cln.InitVars()
+            Dim cln As MonthlyBalanceDataTable = CType(MyBase.Clone,MonthlyBalanceDataTable)
+            cln.InitVars
             Return cln
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
             Return New MonthlyBalanceDataTable()
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnMonth = MyBase.Columns("Month")
             Me.columnExpenditure = MyBase.Columns("Expenditure")
             Me.columnIncome = MyBase.Columns("Income")
             Me.columnBalance = MyBase.Columns("Balance")
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
             Me.columnMonth = New Global.System.Data.DataColumn("Month", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMonth)
@@ -1155,74 +1134,74 @@ Partial Public Class LifeDataDataSet
             MyBase.Columns.Add(Me.columnIncome)
             Me.columnBalance = New Global.System.Data.DataColumn("Balance", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBalance)
-            Me.columnMonth.AllowDBNull = False
-            Me.columnExpenditure.AllowDBNull = False
-            Me.columnIncome.AllowDBNull = False
-            Me.columnBalance.AllowDBNull = False
+            Me.columnMonth.AllowDBNull = false
+            Me.columnExpenditure.AllowDBNull = false
+            Me.columnIncome.AllowDBNull = false
+            Me.columnBalance.AllowDBNull = false
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function NewMonthlyBalanceRow() As MonthlyBalanceRow
-            Return CType(Me.NewRow, MonthlyBalanceRow)
+            Return CType(Me.NewRow,MonthlyBalanceRow)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
             Return New MonthlyBalanceRow(builder)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
             Return GetType(MonthlyBalanceRow)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
             If (Not (Me.MonthlyBalanceRowChangedEvent) Is Nothing) Then
-                RaiseEvent MonthlyBalanceRowChanged(Me, New MonthlyBalanceRowChangeEvent(CType(e.Row, MonthlyBalanceRow), e.Action))
+                RaiseEvent MonthlyBalanceRowChanged(Me, New MonthlyBalanceRowChangeEvent(CType(e.Row,MonthlyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
             If (Not (Me.MonthlyBalanceRowChangingEvent) Is Nothing) Then
-                RaiseEvent MonthlyBalanceRowChanging(Me, New MonthlyBalanceRowChangeEvent(CType(e.Row, MonthlyBalanceRow), e.Action))
+                RaiseEvent MonthlyBalanceRowChanging(Me, New MonthlyBalanceRowChangeEvent(CType(e.Row,MonthlyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
             If (Not (Me.MonthlyBalanceRowDeletedEvent) Is Nothing) Then
-                RaiseEvent MonthlyBalanceRowDeleted(Me, New MonthlyBalanceRowChangeEvent(CType(e.Row, MonthlyBalanceRow), e.Action))
+                RaiseEvent MonthlyBalanceRowDeleted(Me, New MonthlyBalanceRowChangeEvent(CType(e.Row,MonthlyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
             If (Not (Me.MonthlyBalanceRowDeletingEvent) Is Nothing) Then
-                RaiseEvent MonthlyBalanceRowDeleting(Me, New MonthlyBalanceRowChangeEvent(CType(e.Row, MonthlyBalanceRow), e.Action))
+                RaiseEvent MonthlyBalanceRowDeleting(Me, New MonthlyBalanceRowChangeEvent(CType(e.Row,MonthlyBalanceRow), e.Action))
             End If
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub RemoveMonthlyBalanceRow(ByVal row As MonthlyBalanceRow)
             Me.Rows.Remove(row)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
@@ -1251,35 +1230,35 @@ Partial Public Class LifeDataDataSet
             If xs.Contains(dsSchema.TargetNamespace) Then
                 Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
                 Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try
+                Try 
                     Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
                     dsSchema.Write(s1)
                     Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
                     Do While schemas.MoveNext
-                        schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
                         s2.SetLength(0)
                         schema.Write(s2)
                         If (s1.Length = s2.Length) Then
                             s1.Position = 0
                             s2.Position = 0
-
-                            Do While ((s1.Position <> s1.Length) _
+                            
+                            Do While ((s1.Position <> s1.Length)  _
                                         AndAlso (s1.ReadByte = s2.ReadByte))
-
-
+                                
+                                
                             Loop
                             If (s1.Position = s1.Length) Then
                                 Return type
                             End If
                         End If
-
+                        
                     Loop
                 Finally
                     If (Not (s1) Is Nothing) Then
-                        s1.Close()
+                        s1.Close
                     End If
                     If (Not (s2) Is Nothing) Then
-                        s2.Close()
+                        s2.Close
                     End If
                 End Try
             End If
@@ -1287,221 +1266,221 @@ Partial Public Class LifeDataDataSet
             Return type
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class AnnualyBalanceRow
         Inherits Global.System.Data.DataRow
-
+        
         Private tableAnnualyBalance As AnnualyBalanceDataTable
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableAnnualyBalance = CType(Me.Table, AnnualyBalanceDataTable)
+            Me.tableAnnualyBalance = CType(Me.Table,AnnualyBalanceDataTable)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Year() As String
             Get
-                Return CType(Me(Me.tableAnnualyBalance.YearColumn), String)
+                Return CType(Me(Me.tableAnnualyBalance.YearColumn),String)
             End Get
-            Set(value As String)
+            Set
                 Me(Me.tableAnnualyBalance.YearColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Expenditure() As Decimal
             Get
-                Return CType(Me(Me.tableAnnualyBalance.ExpenditureColumn), Decimal)
+                Return CType(Me(Me.tableAnnualyBalance.ExpenditureColumn),Decimal)
             End Get
-            Set(value As Decimal)
+            Set
                 Me(Me.tableAnnualyBalance.ExpenditureColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Income() As Decimal
             Get
-                Return CType(Me(Me.tableAnnualyBalance.IncomeColumn), Decimal)
+                Return CType(Me(Me.tableAnnualyBalance.IncomeColumn),Decimal)
             End Get
-            Set(value As Decimal)
+            Set
                 Me(Me.tableAnnualyBalance.IncomeColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Balance() As Decimal
             Get
-                Return CType(Me(Me.tableAnnualyBalance.BalanceColumn), Decimal)
+                Return CType(Me(Me.tableAnnualyBalance.BalanceColumn),Decimal)
             End Get
-            Set(value As Decimal)
+            Set
                 Me(Me.tableAnnualyBalance.BalanceColumn) = value
             End Set
         End Property
     End Class
-
+    
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class DailyBalanceRow
         Inherits Global.System.Data.DataRow
-
+        
         Private tableDailyBalance As DailyBalanceDataTable
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableDailyBalance = CType(Me.Table, DailyBalanceDataTable)
+            Me.tableDailyBalance = CType(Me.Table,DailyBalanceDataTable)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ID() As Integer
             Get
-                Return CType(Me(Me.tableDailyBalance.IDColumn), Integer)
+                Return CType(Me(Me.tableDailyBalance.IDColumn),Integer)
             End Get
-            Set(value As Integer)
+            Set
                 Me(Me.tableDailyBalance.IDColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property _Date() As Date
             Get
-                Return CType(Me(Me.tableDailyBalance.DateColumn), Date)
+                Return CType(Me(Me.tableDailyBalance.DateColumn),Date)
             End Get
-            Set(value As Date)
+            Set
                 Me(Me.tableDailyBalance.DateColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Direction() As String
             Get
-                Return CType(Me(Me.tableDailyBalance.DirectionColumn), String)
+                Return CType(Me(Me.tableDailyBalance.DirectionColumn),String)
             End Get
-            Set(value As String)
+            Set
                 Me(Me.tableDailyBalance.DirectionColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Money() As Decimal
             Get
-                Return CType(Me(Me.tableDailyBalance.MoneyColumn), Decimal)
+                Return CType(Me(Me.tableDailyBalance.MoneyColumn),Decimal)
             End Get
-            Set(value As Decimal)
+            Set
                 Me(Me.tableDailyBalance.MoneyColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Category() As String
             Get
-                Return CType(Me(Me.tableDailyBalance.CategoryColumn), String)
+                Return CType(Me(Me.tableDailyBalance.CategoryColumn),String)
             End Get
-            Set(value As String)
+            Set
                 Me(Me.tableDailyBalance.CategoryColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Remark() As String
             Get
-                Try
-                    Return CType(Me(Me.tableDailyBalance.RemarkColumn), String)
+                Try 
+                    Return CType(Me(Me.tableDailyBalance.RemarkColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("表""DailyBalance""中列""Remark""的值为 DBNull。", e)
+                    Throw New Global.System.Data.StrongTypingException("表““DailyBalance””中列““Remark””的值为 DBNull。", e)
                 End Try
             End Get
-            Set(value As String)
+            Set
                 Me(Me.tableDailyBalance.RemarkColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsRemarkNull() As Boolean
             Return Me.IsNull(Me.tableDailyBalance.RemarkColumn)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetRemarkNull()
             Me(Me.tableDailyBalance.RemarkColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
-
+    
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class MonthlyBalanceRow
         Inherits Global.System.Data.DataRow
-
+        
         Private tableMonthlyBalance As MonthlyBalanceDataTable
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableMonthlyBalance = CType(Me.Table, MonthlyBalanceDataTable)
+            Me.tableMonthlyBalance = CType(Me.Table,MonthlyBalanceDataTable)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Month() As String
             Get
-                Return CType(Me(Me.tableMonthlyBalance.MonthColumn), String)
+                Return CType(Me(Me.tableMonthlyBalance.MonthColumn),String)
             End Get
-            Set(value As String)
-                Me(Me.tableMonthlyBalance.MonthColumn) = Value
+            Set
+                Me(Me.tableMonthlyBalance.MonthColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Expenditure() As Decimal
             Get
-                Return CType(Me(Me.tableMonthlyBalance.ExpenditureColumn), Decimal)
+                Return CType(Me(Me.tableMonthlyBalance.ExpenditureColumn),Decimal)
             End Get
-            Set(value As Decimal)
-                Me(Me.tableMonthlyBalance.ExpenditureColumn) = Value
+            Set
+                Me(Me.tableMonthlyBalance.ExpenditureColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Income() As Decimal
             Get
-                Return CType(Me(Me.tableMonthlyBalance.IncomeColumn), Decimal)
+                Return CType(Me(Me.tableMonthlyBalance.IncomeColumn),Decimal)
             End Get
-            Set(value As Decimal)
-                Me(Me.tableMonthlyBalance.IncomeColumn) = Value
+            Set
+                Me(Me.tableMonthlyBalance.IncomeColumn) = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Balance() As Decimal
             Get
-                Return CType(Me(Me.tableMonthlyBalance.BalanceColumn), Decimal)
+                Return CType(Me(Me.tableMonthlyBalance.BalanceColumn),Decimal)
             End Get
-            Set(value As Decimal)
-                Me(Me.tableMonthlyBalance.BalanceColumn) = Value
+            Set
+                Me(Me.tableMonthlyBalance.BalanceColumn) = value
             End Set
         End Property
     End Class

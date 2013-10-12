@@ -23,14 +23,19 @@ Partial Class frmDailyBalance
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.cmsDGV = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.修改ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.删除ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DailyBalanceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LifeDataDataSet = New LifeData.LifeDataDataSet()
-        Me.DailyBalanceTableAdapter = New LifeData.LifeDataDataSetTableAdapters.DailyBalanceTableAdapter()
         Me.ssTotalyBalance = New System.Windows.Forms.StatusStrip()
-        Me.ssTotalBalanceLable = New System.Windows.Forms.ToolStripStatusLabel()
         Me.btnDataCollection = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
@@ -51,12 +56,21 @@ Partial Class frmDailyBalance
         Me.MoneyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CategoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RemarkDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ssCurrentMonthBalanceLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.DailyBalanceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LifeDataDataSet = New LifeData.LifeDataDataSet()
+        Me.DailyBalanceTableAdapter = New LifeData.LifeDataDataSetTableAdapters.DailyBalanceTableAdapter()
+        Me.chartDailyBalance = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.chartMonthlyBalance = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.ssTotalBalance = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.chartTotalBalance = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.cmsDGV.SuspendLayout()
-        CType(Me.DailyBalanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LifeDataDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssTotalyBalance.SuspendLayout()
         CType(Me.dgvDailyBalance, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DailyBalanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LifeDataDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chartDailyBalance, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chartMonthlyBalance, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chartTotalBalance, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmsDGV
@@ -77,34 +91,14 @@ Partial Class frmDailyBalance
         Me.删除ToolStripMenuItem.Size = New System.Drawing.Size(108, 24)
         Me.删除ToolStripMenuItem.Text = "删除"
         '
-        'DailyBalanceBindingSource
-        '
-        Me.DailyBalanceBindingSource.DataMember = "DailyBalance"
-        Me.DailyBalanceBindingSource.DataSource = Me.LifeDataDataSet
-        '
-        'LifeDataDataSet
-        '
-        Me.LifeDataDataSet.DataSetName = "LifeDataDataSet"
-        Me.LifeDataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DailyBalanceTableAdapter
-        '
-        Me.DailyBalanceTableAdapter.ClearBeforeFill = True
-        '
         'ssTotalyBalance
         '
-        Me.ssTotalyBalance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ssTotalBalanceLable, Me.ssCurrentMonthBalanceLabel})
-        Me.ssTotalyBalance.Location = New System.Drawing.Point(0, 612)
+        Me.ssTotalyBalance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ssTotalBalance})
+        Me.ssTotalyBalance.Location = New System.Drawing.Point(0, 821)
         Me.ssTotalyBalance.Name = "ssTotalyBalance"
-        Me.ssTotalyBalance.Size = New System.Drawing.Size(817, 25)
+        Me.ssTotalyBalance.Size = New System.Drawing.Size(1431, 25)
         Me.ssTotalyBalance.TabIndex = 18
         Me.ssTotalyBalance.Tag = ""
-        '
-        'ssTotalBalanceLable
-        '
-        Me.ssTotalBalanceLable.Name = "ssTotalBalanceLable"
-        Me.ssTotalBalanceLable.Size = New System.Drawing.Size(154, 20)
-        Me.ssTotalBalanceLable.Text = "ssTotalBalanceLabel"
         '
         'btnDataCollection
         '
@@ -225,12 +219,12 @@ Partial Class frmDailyBalance
         Me.dgvDailyBalance.ContextMenuStrip = Me.cmsDGV
         Me.dgvDailyBalance.Cursor = System.Windows.Forms.Cursors.Default
         Me.dgvDailyBalance.DataSource = Me.DailyBalanceBindingSource
-        Me.dgvDailyBalance.Location = New System.Drawing.Point(16, 155)
+        Me.dgvDailyBalance.Location = New System.Drawing.Point(16, 169)
         Me.dgvDailyBalance.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgvDailyBalance.Name = "dgvDailyBalance"
         Me.dgvDailyBalance.ReadOnly = True
         Me.dgvDailyBalance.RowTemplate.Height = 27
-        Me.dgvDailyBalance.Size = New System.Drawing.Size(778, 439)
+        Me.dgvDailyBalance.Size = New System.Drawing.Size(823, 648)
         Me.dgvDailyBalance.TabIndex = 45
         '
         'IDDataGridViewTextBoxColumn
@@ -275,17 +269,85 @@ Partial Class frmDailyBalance
         Me.RemarkDataGridViewTextBoxColumn.Name = "RemarkDataGridViewTextBoxColumn"
         Me.RemarkDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'ssCurrentMonthBalanceLabel
+        'DailyBalanceBindingSource
         '
-        Me.ssCurrentMonthBalanceLabel.Name = "ssCurrentMonthBalanceLabel"
-        Me.ssCurrentMonthBalanceLabel.Size = New System.Drawing.Size(221, 20)
-        Me.ssCurrentMonthBalanceLabel.Text = "ssCurrentMonthBalanceLabel"
+        Me.DailyBalanceBindingSource.DataMember = "DailyBalance"
+        Me.DailyBalanceBindingSource.DataSource = Me.LifeDataDataSet
+        '
+        'LifeDataDataSet
+        '
+        Me.LifeDataDataSet.DataSetName = "LifeDataDataSet"
+        Me.LifeDataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DailyBalanceTableAdapter
+        '
+        Me.DailyBalanceTableAdapter.ClearBeforeFill = True
+        '
+        'chartDailyBalance
+        '
+        Me.chartDailyBalance.BackColor = System.Drawing.SystemColors.Control
+        ChartArea1.Name = "ChartArea1"
+        Me.chartDailyBalance.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.chartDailyBalance.Legends.Add(Legend1)
+        Me.chartDailyBalance.Location = New System.Drawing.Point(845, 2)
+        Me.chartDailyBalance.Name = "chartDailyBalance"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Color = System.Drawing.Color.Blue
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.chartDailyBalance.Series.Add(Series1)
+        Me.chartDailyBalance.Size = New System.Drawing.Size(574, 509)
+        Me.chartDailyBalance.TabIndex = 59
+        '
+        'chartMonthlyBalance
+        '
+        Me.chartMonthlyBalance.BackColor = System.Drawing.SystemColors.Control
+        ChartArea2.Name = "ChartArea1"
+        Me.chartMonthlyBalance.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.chartMonthlyBalance.Legends.Add(Legend2)
+        Me.chartMonthlyBalance.Location = New System.Drawing.Point(845, 517)
+        Me.chartMonthlyBalance.Name = "chartMonthlyBalance"
+        Series2.ChartArea = "ChartArea1"
+        Series2.Color = System.Drawing.Color.Blue
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.chartMonthlyBalance.Series.Add(Series2)
+        Me.chartMonthlyBalance.Size = New System.Drawing.Size(270, 300)
+        Me.chartMonthlyBalance.TabIndex = 60
+        '
+        'ssTotalBalance
+        '
+        Me.ssTotalBalance.Name = "ssTotalBalance"
+        Me.ssTotalBalance.Size = New System.Drawing.Size(115, 20)
+        Me.ssTotalBalance.Text = "ssTotalBalance"
+        '
+        'chartTotalBalance
+        '
+        Me.chartTotalBalance.BackColor = System.Drawing.SystemColors.Control
+        ChartArea3.Name = "ChartArea1"
+        Me.chartTotalBalance.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.chartTotalBalance.Legends.Add(Legend3)
+        Me.chartTotalBalance.Location = New System.Drawing.Point(1149, 517)
+        Me.chartTotalBalance.Name = "chartTotalBalance"
+        Series3.ChartArea = "ChartArea1"
+        Series3.Color = System.Drawing.Color.Blue
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.chartTotalBalance.Series.Add(Series3)
+        Me.chartTotalBalance.Size = New System.Drawing.Size(270, 300)
+        Me.chartTotalBalance.TabIndex = 61
         '
         'frmDailyBalance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(817, 637)
+        Me.ClientSize = New System.Drawing.Size(1431, 846)
+        Me.Controls.Add(Me.chartTotalBalance)
+        Me.Controls.Add(Me.chartMonthlyBalance)
+        Me.Controls.Add(Me.chartDailyBalance)
         Me.Controls.Add(Me.btnDataCollection)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.btnAdd)
@@ -302,18 +364,21 @@ Partial Class frmDailyBalance
         Me.Controls.Add(Me.dgvDailyBalance)
         Me.Controls.Add(Me.ssTotalyBalance)
         Me.Font = New System.Drawing.Font("楷体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.Name = "frmDailyBalance"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "日常收支数据"
         Me.cmsDGV.ResumeLayout(False)
-        CType(Me.DailyBalanceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LifeDataDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ssTotalyBalance.ResumeLayout(False)
         Me.ssTotalyBalance.PerformLayout()
         CType(Me.dgvDailyBalance, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DailyBalanceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LifeDataDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chartDailyBalance, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chartMonthlyBalance, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chartTotalBalance, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -324,7 +389,6 @@ Partial Class frmDailyBalance
     Friend WithEvents ssTotalyBalance As System.Windows.Forms.StatusStrip
     Friend WithEvents cmsDGV As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents 修改ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ssTotalBalanceLable As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents 删除ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnDataCollection As System.Windows.Forms.Button
     Friend WithEvents btnRefresh As System.Windows.Forms.Button
@@ -346,5 +410,8 @@ Partial Class frmDailyBalance
     Friend WithEvents MoneyDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CategoryDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RemarkDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ssCurrentMonthBalanceLabel As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents chartDailyBalance As System.Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents chartMonthlyBalance As System.Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents ssTotalBalance As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents chartTotalBalance As System.Windows.Forms.DataVisualization.Charting.Chart
 End Class

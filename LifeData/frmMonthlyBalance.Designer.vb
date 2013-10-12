@@ -362,8 +362,9 @@ Partial Class frmMonthlyandYearlyBalance
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("楷体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
         Me.Name = "frmMonthlyandYearlyBalance"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "月/年收支数据汇总"
